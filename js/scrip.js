@@ -7,7 +7,7 @@ const datos=[];
 
 
 
-function cantidad(){
+function cantidadPrestamo(){
     monto=parseInt(prompt("Ingrese monto"));
     while(monto > 500000){
         alert("Su monto excede su limite, el monto  no puede ser superior a $500000 ")
@@ -15,7 +15,7 @@ function cantidad(){
     }
     return monto
 }
-function cuota(){
+function cuotaPrestamo(){
     cuotas=parseInt(prompt("Cuotas"));
     while(cuotas > 12){
         alert("Su cuota excede su limite, la cuota no puede ser mayor a 12 meses ")
@@ -24,14 +24,14 @@ function cuota(){
     return cuotas
 }
 function salida(){
-    total= iva * monto
-    total2 = total+ monto
-    return "Su cuota final es de " +"$"+ Math.ceil(total2 / cuotas);
+    total= (iva * monto) + monto
+    return "Su cuota final es de " +"$"+ Math.ceil(total / cuotas);
 }
 
-console.log(cantidad())
-console.log(cuota())
-console.log(alert(salida()))
+console.log(cantidadPrestamo())
+console.log(cuotaPrestamo())
+alert(salida())
+confirm("Desea accedear a este prestamo?")
 
 class Clientes{
     constructor(usuario,cuotas,monto){
@@ -47,4 +47,7 @@ datos.push(cliente2)
 
 console.log(datos)
 
+const prestamosGrandes= datos.find((elemento) => {return elemento.cantidad > 50000});
+
+console.log(prestamosGrandes);
 
